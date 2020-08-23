@@ -1,0 +1,66 @@
+                                                                    --REDUX--
+* Prerequisites:
+1) fundamentals of React
+
+
+* Definition:
+"Redux is a predictable state container for javascript apps."
+1) It is for javascript apps.
+2) It is a state container
+3) It is predictable
+-Here I explain each point which is mention above.
+1) Redux is not tied to react.It can be used with react,vue,angular or even vanilla javascript. Redux is a library for javascript applications.
+2) Redux stores a state of your application.Consider a react app with state of a component.State of an app is the state represented by all the individul components of that app.Redux will store and manage the application state thats why redux is a state container for javascript apps.
+3) Predictable in what way? => Redux is a state container and the state of container can change.
+   Ex: todo list app - item(pending) => item(completed)
+   In redux, all state transitions are explicit and it is possible to keep track of them.
+
+
+Question : why would you want to use redux?
+Answer : If you want to manage your application in a predictable way , redux can help you.
+
+
+* Summary:
+1) React is a library used to build user interfaces.
+2) Redux is a library for managing state is a predictable way in javascript applications.
+3) React-redux is a library that provides bindings to use React and Redux together in an application
+
+
+*Three Core Concepts:
+1)A store that holds the state of your application.
+2)An action that describes the changes in the state of the application.
+3)A reducer which actually carries out the state transition depending on the action.
+Ex:I have select a cake shop scenario.
+                                                                 --CAKE SHOP--
+
+a)Entities                                                                            b)Activities
+Shop       - Stores cakes on a shelf                                                  Customer   - Buy a cake
+Shopkeeper - At the front of the store                                                Shopkeeper - Remove a cake from the shelf 
+Customer   - At the store entrance                                                               - Receipt to keep track
+
+
+-Cake Shop Scenario                                      -Redux                                        -Purpose
+
+a) Shop                                                  Store                                         Holds the state of your application
+b)Intention to Buy_cake                                  Action                                        Describes what happened
+c)Shopkeeper                                             Reducer                                       Ties the store and actions together   
+
+
+*Three Principles
+1)"The state of your whole application is stored in an object three within a single store.Maintain our application state in a single object which would be managed by the 'Redux Store'."
+2)"The only way to change the state is to emit an action,an object describing what happened.To update the state of your app, you need tp let redux know about that with an action.Not allowed to directly update the state object."
+3)"To specify how the state tree is transformed by actions, you write pure reducers.Reducer - (previousState ,action) => newState"
+
+
+* Action 
+
+1)The only way your application can interact with the store carry some information from your app to the redux store.
+2)Plain javascript objects.
+3)Have a 'type' property that indicates the types of action being performed.
+4)The 'type' property is typically defined as string constants.
+
+
+* Reducers
+1)Specify how the app's state changes in response to actions sent to the store.
+2)Function that accepts state and action as arguments, and returns the next state of application.
+(previousState,action) => newState
