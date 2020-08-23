@@ -18,7 +18,9 @@ const initialState = {
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case BUY_CAKE: return {
-
+            ...state, //here spread operator tells the reducer to first make a copy of state object and then only update number of cakes.
+            numOfCakes: state.numOfCakes - 1
         }
+        default: return state
     }
 }
