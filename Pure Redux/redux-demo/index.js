@@ -1,8 +1,11 @@
 //Here we define react store
 const redux = require('redux');
+const reduxLogger = require('redux-logger');
+
 const createStore = redux.createStore;
 const combineReducers = redux.combineReducers;
-
+const applyMiddleware = redux.applyMiddleware;
+const logger = reduxLogger.createLogger();
 /*
 //Here we define Action 
 // Note:You can see that we have an action creator 'BuyCake' now you could  by all means 
@@ -92,7 +95,7 @@ store.dispatch(BuyIceCream())
 store.dispatch(BuyIceCream())
 unSuscribe()
 
-*/
+
 //Best practice is that create multiple state for each task.
 //and create reducer of each state and combine them in a single store with the help of "combineReducer functions"
 const BUY_CAKE = 'BUY_CAKE';
@@ -140,6 +143,61 @@ const rootReducer = combineReducers({
 const store = createStore(rootReducer);
 console.log('Initial state', store.getState());
 const unSuscribe = store.subscribe(() => console.log('Updated state', store.getState()));
+store.dispatch(BuyCake())
+store.dispatch(BuyCake())
+store.dispatch(BuyCake())
+store.dispatch(BuyIceCream())
+store.dispatch(BuyIceCream())
+unSuscribe()
+
+*/
+
+//Now we create rootReducer with middleware
+const BUY_CAKE = 'BUY_CAKE';
+const BUY_ICECREAM = 'BUY_ICECREAM';
+const BuyCake = () => {
+    return {
+        type: BUY_CAKE,
+        info: 'First redux action'
+    }
+}
+const BuyIceCream = () => {
+    return {
+        type: BUY_ICECREAM,
+        info: 'second redux action'
+    }
+}
+const initialCakeState = {
+    numOfCakes: 10
+}
+const initialIceCreamState = {
+    numOfIceCreams: 20
+}
+const cakeReducer = (state = initialCakeState, action) => {
+    switch (action.type) {
+        case BUY_CAKE: return {
+            ...state,
+            numOfCakes: state.numOfCakes - 1
+        }
+        default: return state
+    }
+}
+const iceCreamReducer = (state = initialIceCreamState, action) => {
+    switch (action.type) {
+        case BUY_ICECREAM: return {
+            ...state,
+            numOfIceCreams: state.numOfIceCreams - 1
+        }
+        default: return state
+    }
+}
+const rootReducer = combineReducers({
+    cake: cakeReducer,
+    iceCream: iceCreamReducer
+})
+const store = createStore(rootReducer, applyMiddleware(logger));
+console.log('Initial state', store.getState());
+const unSuscribe = store.subscribe(() => { });
 store.dispatch(BuyCake())
 store.dispatch(BuyCake())
 store.dispatch(BuyCake())

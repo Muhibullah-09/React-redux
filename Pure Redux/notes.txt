@@ -90,3 +90,49 @@ Shopkeeper to handle BUY_CAKE from Customer
 Sell ice creams!
 Ice creams stored in a freezer
 New shopkeeper to handle BUY_ICECREAM from customer
+
+
+* Middleware
+1)Is the suggested way to extend Redux with custom functionalities
+2)Provides a third-party extension point between dispatching an action , and the moment it reaches the reducers.
+3)Use middleware for logging, crash reporting, performing asynchronous task etc.
+
+* Synchronous Actions
+1)As soon as an action was dispatched, the state was immediately updated.
+If you dispatch the BUY_CAKE action, the numOfCakes was right away decremented by 1.
+Same with BUY_ICECREAM action as well.
+
+* Asynchronous Action 
+1)Asychronous API calls to fetch data from an end point and use that data in your application.
+a)Fetches a list of users from an API end point and stores it in the redux store.
+b)State?
+b)Actions?
+c)Reducers? 
+
+a)state={
+   loading:true,
+   data:[],
+   error:'
+}
+loading-'Display a loading spinner in your component'.
+data-'List of users'
+error-'Display error to the user'
+
+b)We have three actions in our application.
+1)FETCH_USER_REQUEST - Fetch list of users.
+2)FETCH_USER_SUCCESS - Fetched successfully.
+3)FETCH_USER_FAILURE - Error fetching the data.
+
+c) 
+case:FETCH_USER_REQUEST
+  loading:true
+case:FETCH_USER_SUCCESS
+  loading:false
+  user:show data(from API)
+case:FETCH_USER_FAILURE
+  loading:false
+  error: show error 
+
+* Async action creators(axios and redux-thunk is a packages)
+1) axios:Request to an API end point.
+2)redux-thunk:Define async action creators.Middleware
