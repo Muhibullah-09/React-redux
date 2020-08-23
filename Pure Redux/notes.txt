@@ -9,8 +9,11 @@
 2) It is a state container
 3) It is predictable
 -Here I explain each point which is mention above.
-1) Redux is not tied to react.It can be used with react,vue,angular or even vanilla javascript. Redux is a library for javascript applications.
-2) Redux stores a state of your application.Consider a react app with state of a component.State of an app is the state represented by all the individul components of that app.Redux will store and manage the application state thats why redux is a state container for javascript apps.
+1) Redux is not tied to react.It can be used with react,vue,angular or even vanilla javascript.
+Redux is a library for javascript applications.
+2) Redux stores a state of your application.Consider a react app with state of a component.
+State of an app is the state represented by all the individul components of that app.
+Redux will store and manage the application state thats why redux is a state container for javascript apps.
 3) Predictable in what way? => Redux is a state container and the state of container can change.
    Ex: todo list app - item(pending) => item(completed)
    In redux, all state transitions are explicit and it is possible to keep track of them.
@@ -47,8 +50,11 @@ c)Shopkeeper                                             Reducer                
 
 
 *Three Principles
-1)"The state of your whole application is stored in an object three within a single store.Maintain our application state in a single object which would be managed by the 'Redux Store'."
-2)"The only way to change the state is to emit an action,an object describing what happened.To update the state of your app, you need tp let redux know about that with an action.Not allowed to directly update the state object."
+1)"The state of your whole application is stored in an object three within a single store.
+Maintain our application state in a single object which would be managed by the 'Redux Store'."
+2)"The only way to change the state is to emit an action,an object describing what happened.
+To update the state of your app, you need tp let redux know about that with an action.
+Not allowed to directly update the state object."
 3)"To specify how the state tree is transformed by actions, you write pure reducers.Reducer - (previousState ,action) => newState"
 
 
@@ -74,3 +80,13 @@ b)Allows access to state via getState().
 c)Allows state to be updated via dispatch(action).
 d)Register listeners via subscribe(listener).
 e)Handle unregistering of listeners via the function returned by subscribe(listener).
+
+
+                                                                 --CAKE AND ICE CREAM SHOP--
+Cake shop
+Cakes stored on the shelf
+Shopkeeper to handle BUY_CAKE from Customer
+
+Sell ice creams!
+Ice creams stored in a freezer
+New shopkeeper to handle BUY_ICECREAM from customer
