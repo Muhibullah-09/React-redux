@@ -10,6 +10,7 @@ function CakeContainer(props) {
         </div>
     )
 }
+//mapStateProps is the alternate of useSelector Hook.
 const mapStateToProps = state => {
     return {
         numOfCakes: state.numOfCakes
