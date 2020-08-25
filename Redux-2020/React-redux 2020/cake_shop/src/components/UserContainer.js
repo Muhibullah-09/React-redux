@@ -1,42 +1,40 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import { FetchUsers } from '../redux/user/userAction';
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
+import { fetchUsers } from '../redux'
 
-
-function UserContainer({ userData, FetchUsers }) {
+function UsersContainer({ userData, fetchUsers }) {
     useEffect(() => {
-        FetchUsers();
-    }, []);
-
+        fetchUsers()
+    }, [])
     return userData.loading ? (
-        <h2>Loading...</h2>
+        <h2>Loading</h2>
     ) : userData.error ? (
         <h2>{userData.error}</h2>
     ) : (
                 <div>
-                    <h2>User List</h2>
+                    <h2>Users List</h2>
                     <div>
-                        {
-                            userData &&
-                            userData.user &&
-                            userData.user.map(user => <p>{user.name}</p>)
-                        }
+                        {userData &&
+                            userData.users &&
+                            userData.users.map(user => <p>{user.name}</p>)}
                     </div>
                 </div>
-
             )
 }
 
-//mapStateProps is the alternate of useSelector Hook.
 const mapStateToProps = state => {
     return {
         userData: state.user
     }
 }
+
 const mapDispatchToProps = dispatch => {
     return {
-        fetchUsers: () => dispatch(FetchUsers())
+        fetchUsers: () => dispatch(fetchUsers())
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserContainer)
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(UsersContainer)
