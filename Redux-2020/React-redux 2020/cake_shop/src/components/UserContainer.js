@@ -5,7 +5,7 @@ import { fetchUsers } from '../redux'
 function UsersContainer({ userData, fetchUsers }) {
     useEffect(() => {
         fetchUsers()
-    }, [])
+    }, [fetchUsers])
     return userData.loading ? (
         <h2>Loading</h2>
     ) : userData.error ? (
