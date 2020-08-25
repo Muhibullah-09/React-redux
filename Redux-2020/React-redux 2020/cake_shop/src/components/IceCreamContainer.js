@@ -1,27 +1,27 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { buyCake } from '../redux';
+import { buyIceCream } from '../redux';
 
-function CakeContainer(props) {
+function IceCreamContainer(props) {
     return (
         <div>
-            <h2>Number of cakes - {props.numOfCakes}</h2>
-            <button onClick={props.buyCake}>Buy cakes</button>
+            <h2>Number of IceCreams - {props.numOfIceCreams}</h2>
+            <button onClick={props.buyIceCream}>Buy IceCream</button>
         </div>
     )
 }
 //mapStateProps is the alternate of useSelector Hook.
 const mapStateToProps = state => {
     return {
-        numOfCakes: state.cake.numOfCakes
+        numOfIceCreams: state.iceCream.numOfIceCreams
     }
 }
 const mapDispatchToProps = dispatch => {
     return {
-        buyCake: () => dispatch(buyCake())
+        buyIceCream: () => dispatch(buyIceCream())
     }
 }
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(CakeContainer);
+)(IceCreamContainer);
