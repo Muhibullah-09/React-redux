@@ -1,15 +1,11 @@
 import React from 'react';
-import { Counter } from './redux/counter';
-// import Todos from './components/Todos';
-// import MirageServer from './mirage'
-
-// MirageServer()
-
+import './App.css';
+import Counter from './components/Counter';
 
 function App() {
   return (
     <div>
-      {/* <Todos /> */}
+      Hello App Component Async
       <Counter />
     </div>
   );
