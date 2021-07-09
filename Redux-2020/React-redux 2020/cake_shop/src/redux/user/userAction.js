@@ -19,7 +19,7 @@ export const fetchUserFailure = error => {
         type: FETCH_USER_FAILURE,
         payload: error
     }
-}
+} 
 
 export const fetchUsers = () => {
     return (dispatch) => {
