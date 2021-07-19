@@ -1,14 +1,15 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchPosts } from '../redux';
+import { fetchPosts, } from '../redux';
 
 function PostsContainer() {
   const postData = useSelector(state => state.post);
   const dispatch= useDispatch();
+  console.log(postData)
   // fetchUsers =  () => dispatch(fetchUsers())
   useEffect(() => {
     dispatch(fetchPosts())
-  }, [dispatch])
+  }, [])// eslint-disable-line react-hooks/exhaustive-deps
   return postData.loading ? (
     <h2>Loading</h2>
   ) : postData.error ? (
